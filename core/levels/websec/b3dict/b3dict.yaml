@@ -1,0 +1,36 @@
+imports:
+- path: container_vm.jinja
+
+
+resources:
+
+- name: b3-container-vm
+  type: container_vm.jinja
+  properties:
+    zone: us-west1-b
+    open_external: true
+    open_http: true
+    container_manifest: |
+      apiVersion: v1
+      kind: Pod
+      metadata:
+        name: b3
+      spec:
+        containers:
+          - name: b3
+            image: docker.io/wwupdx/websec-b1:latest
+            imagePullPolicy: Always
+            ports:
+              - containerPort: 80
+                hostPort: 80
+            env:
+              - name: USERNAME
+                value: {{user_r}}
+              - name: PASSWORD
+                value: {{pass_r}}
+              - name: PORT
+                value: 80
+
+              
+
+
