@@ -18,7 +18,7 @@ resources:
       spec:
         containers:
           - name: b3
-            image: docker.io/wwupdx/websec-b1:latest
+            image: docker.io/wwupdx/websec-b3:latest
             imagePullPolicy: Always
             ports:
               - containerPort: 80
