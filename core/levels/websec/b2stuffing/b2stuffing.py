@@ -35,7 +35,7 @@ def create():
         config_template_args[kp]=vp
 
     template_files = [
-        'core/framework/templates/container_vm.jinja']
+        'core/framework/templates/container_vm.jinja','core/framework/templates/ubuntu_vm.jinja']
     deployments.insert(LEVEL_PATH, template_files=template_files,
                        config_template_args=config_template_args)
 

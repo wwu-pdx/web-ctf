@@ -28,7 +28,7 @@ def create():
     config_template_args = {'nonce': nonce, 'user_r': user_r, 'pass_r': pass_r}
 
     template_files = [
-        'core/framework/templates/container_vm.jinja']
+        'core/framework/templates/container_vm.jinja','core/framework/templates/ubuntu_vm.jinja']
     deployments.insert(LEVEL_PATH, template_files=template_files,
                        config_template_args=config_template_args)
 
