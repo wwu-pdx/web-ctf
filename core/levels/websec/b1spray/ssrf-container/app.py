@@ -13,7 +13,7 @@ rusers={rname:rpasswords}
 
 @app.route('/')
 def index():
-    if not session.get('logged_in'):
+    if (not session.get('logged_in')) or (not session.get('user')):
         return redirect(url_for('login'))
     else:
         msg='You are successfully logged in. Welcome '+ session['user'] +'!' 

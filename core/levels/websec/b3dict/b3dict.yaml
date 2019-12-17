@@ -18,11 +18,8 @@ resources:
       spec:
         containers:
           - name: b3
-            image: docker.io/wwupdx/websec-b3:latest
-            imagePullPolicy: Always
-            ports:
-              - containerPort: 80
-                hostPort: 80
+            image: docker.io/wwupdx/websec-b2:latest
+            imagePullPolicy: Always           
             env:
               - name: USERNAME
                 value: {{user_r}}

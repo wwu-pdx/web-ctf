@@ -20,9 +20,6 @@ resources:
           - name: b1
             image: docker.io/wwupdx/websec-b2:latest
             imagePullPolicy: Always
-            ports:
-              - containerPort: 80
-                hostPort: 80
             env:
               - name: USERNAME
                 value: {{user_r}}

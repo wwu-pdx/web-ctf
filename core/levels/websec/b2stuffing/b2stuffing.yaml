@@ -20,9 +20,6 @@ resources:
           - name: b2-0
             image: docker.io/wwupdx/websec-b2:latest
             imagePullPolicy: Always
-            ports:
-              - containerPort: 80
-                hostPort: 80
             env:
               - name: USERNAME
                 value: {{user_r0}}
@@ -45,18 +42,15 @@ resources:
       spec:
         containers:
           - name: b2-1
-            image: docker.io/wwupdx/websec-b1:latest
+            image: docker.io/wwupdx/websec-b2:latest
             imagePullPolicy: Always
-            ports:
-              - containerPort: 81
-                hostPort: 81
             env:
               - name: USERNAME
                 value: {{user_r1}}
               - name: PASSWORD
                 value: {{pass_r1}}
               - name: PORT
-                value: 81
+                value: 80
 
 - name: b2-container-vm-2
   type: container_vm.jinja
@@ -72,18 +66,15 @@ resources:
       spec:
         containers:
           - name: b2-2
-            image: docker.io/wwupdx/websec-b1:latest
+            image: docker.io/wwupdx/websec-b2:latest
             imagePullPolicy: Always
-            ports:
-              - containerPort: 82
-                hostPort: 82
             env:
               - name: USERNAME
                 value: {{user_r2}}
               - name: PASSWORD
                 value: {{pass_r2}}
               - name: PORT
-                value: 82
+                value: 80
 
               
 

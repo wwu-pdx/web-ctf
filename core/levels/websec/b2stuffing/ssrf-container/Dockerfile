@@ -21,4 +21,4 @@ RUN pip install -r requirements.txt
 #ENTRYPOINT ["python"]
 
 # Set the parameters to the program
-CMD gunicorn --bind $PORT:$PORT app:app
+CMD gunicorn --bind :$PORT app:app
