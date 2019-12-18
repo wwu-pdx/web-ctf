@@ -6,7 +6,7 @@ unames=[uname.rstrip('\n') for uname in open('unames.txt','r')]
 #most commanly used passwords found online
 passwords=[password.rstrip('\n').strip() for password in open('passwords.txt','r')]
 
-#url='http://YOUR_INTERNAL_IP/login'
+#url='http://YOUR_WEB_IP/login'
 url='http://10.138.0.58/login'
 
 #iterate over all combination of user names and passwords

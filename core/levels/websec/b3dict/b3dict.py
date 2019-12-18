@@ -45,7 +45,7 @@ def create():
 
     print(f'Level creation complete for: {LEVEL_PATH}')
     start_message = (
-        f'Use attack.py to find valid credentials of the website created by this level \n Your dicrectory start from word[{W_FROM}] end at word[{W_END}]')
+        f'Use attack.py to find valid credential of the vulnerable website. \nYour dicrectory start from word[{W_FROM}] end at word[{W_END}]')
     levels.write_start_info(LEVEL_PATH, start_message)
     print(
         f'Instruction for the level can be accessed at thunder-ctf.cloud/levels/{LEVEL_PATH}.html')

@@ -20,8 +20,9 @@ def create():
     bucket_name = f'{RESOURCE_PREFIX}-bucket-{nonce}'
     print("Level initialization finished for: " + LEVEL_PATH)
     
-    source = 'scripts/'+RESOURCE_PREFIX+'/'
-    user_r, pass_r = gen_credentials(source,10,3)
+    source = 'core/levels/'+LEVEL_PATH+'/'
+    dest='scripts/'+RESOURCE_PREFIX+'/'
+    user_r, pass_r, CREDS= gen_credentials(source,dest,10,3)
     
 
     # Insert deployment
@@ -52,7 +53,7 @@ def create():
 
     print(f'Level creation complete for: {LEVEL_PATH}')
     start_message = (
-        f'Use attack.py to find valid credentials of the website created by this level')
+        f'Use attack.py and credentials.py to find valid credential of vulnerable websites. \nProssible credentials are {CREDS}.')
     levels.write_start_info(LEVEL_PATH, start_message)
     print(
         f'Instruction for the level can be accessed at thunder-ctf.cloud/levels/{LEVEL_PATH}.html')
@@ -72,7 +73,7 @@ def create():
     #remove empty helper directory
     #os.rmdir(source)
 
-def gen_credentials(source,n,m):
+def gen_credentials(source,dest,n,m):
     
     #possible usernames
     u_srouce=source+'unames.txt'
@@ -84,10 +85,10 @@ def gen_credentials(source,n,m):
     rcreds={}
     random.shuffle(names)
     random.shuffle(passwords)
-    c_srouce=source+'credentials.py'
+    c_dest=dest+'credentials.py'
     for i in range(n):
         rcreds[names[i]]=passwords[i]
-    f = open(c_srouce, "w")
+    f = open(c_dest, "w")
     f.write("creds = "+str(rcreds))
     f.close()
     #randomly generate one valid credientials
@@ -100,7 +101,7 @@ def gen_credentials(source,n,m):
         vpass.append(passwords[n+i]) 
     random.shuffle(vnames)
     random.shuffle(vpass)     
-    return vnames,vpass
+    return vnames,vpass,rcreds
 
 def destroy():
     # Delete starting files
