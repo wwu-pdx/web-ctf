@@ -5,3 +5,4 @@
 start/*
 core/framework/config/project.txt
 env
+__pycache__
